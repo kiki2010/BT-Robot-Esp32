@@ -1,5 +1,5 @@
 /*
-  Chiara (Kiki) Catalini
+  Kiki2010
   Base Code to control a BT Robot
   30/01/2025
 */
@@ -9,10 +9,10 @@
 BluetoothSerial SerialBT;
 
 //Motors Pins
-const int MA_F = 18; //Motor A Front
-const int MA_B = 19; //Motor A Back
-const int MB_F = 20; //Motor B Front
-const int MB_B = 21; //Motor B Back
+const int MA_F = 2; //Motor A Front
+const int MA_B = 4; //Motor A Back
+const int MB_F = 16; //Motor B Front
+const int MB_B = 17; //Motor B Back
 
 //Velocity control by PWM
 const int freq = 1000;
@@ -67,11 +67,13 @@ void loop() {
 //Default Movement
 void movement(char c) {
   switch (c) {
+    //Front
     case 'F':
       ledcWrite(MA_F, velocity);
       ledcWrite(MB_F, velocity);
       break;
 
+    //Back
     case 'B':
       ledcWrite(MA_B, velocity);
       ledcWrite(MB_B, velocity);
