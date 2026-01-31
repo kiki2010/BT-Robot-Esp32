@@ -15,19 +15,16 @@ class _ConnectScreenState extends State<ConnectScreen> {
   @override
   void initState() {
     super.initState();
-    FlutterBluetoothSerial.instance
-      .getBondedDevices()
-      .then((list) {
-        setState(() => devices = list);
-      });
     _initBluetooth();
   }
 
   Future<void> _initBluetooth() async {
-    await FlutterBluetoothSerial.instance.requestEnable();
+    final bt = FlutterBluetoothSerial.instance;
 
-    final list = 
-      await FlutterBluetoothSerial.instance.getBondedDevices();
+    await bt.requestEnable();
+    
+    final list = await bt.getBondedDevices();
+    setState(() => devices = list);
   }
 
   @override
