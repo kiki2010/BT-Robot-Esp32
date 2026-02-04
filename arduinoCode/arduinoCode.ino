@@ -9,10 +9,10 @@
 BluetoothSerial SerialBT;
 
 //Motors Pins
-const int MA_F = 2; //Motor A Front
-const int MA_B = 4; //Motor A Back
-const int MB_F = 16; //Motor B Front
-const int MB_B = 17; //Motor B Back
+const int MA_F = 15; //Motor A Front
+const int MA_B = 2; //Motor A Back
+const int MB_F = 4; //Motor B Front
+const int MB_B = 16; //Motor B Back
 
 //Velocity control by PWM
 const int freq = 1000;
@@ -25,7 +25,7 @@ char lastCmd = 'S';
 void setup() {
   //We start Serial port and BT Serial
   Serial.begin(115200);
-  SerialBT.begin("KamishiroRui"); //Or whatever name you want for your robot
+  SerialBT.begin("NovaX"); //Or whatever name you want for your robot
 
   //Set up motors for PWM
   ledcAttach(MA_F, freq, resolution);
